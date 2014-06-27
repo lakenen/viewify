@@ -287,6 +287,9 @@ if (typeof window.viewify === 'undefined') {
     }
 
     function fixLink(a) {
+        if (attr(a, 'data-viewify-ignore')) {
+            return;
+        }
         var clone = a.cloneNode(true);
         clone.removeAttribute('onclick');
         clone.removeAttribute('onmousedown');
@@ -303,8 +306,7 @@ if (typeof window.viewify === 'undefined') {
     }
 
     function fixLinks() {
-        forEach(document.querySelectorAll('a[href]:not([data-viewify-seen])'), function (a) {
-            attr(a, 'data-viewify-seen', '1');
+        forEach(document.querySelectorAll('a[href]'), function (a) {
             if (isDocumentURL(a.href)) {
                 fixLink(a);
             }
