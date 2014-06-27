@@ -148,8 +148,10 @@ if (typeof window.viewify === 'undefined') {
     }
 
     var currentRequest, currentURL;
-    function viewifyLink(a) {
-        var url = a.href;
+    function viewifyLink(url) {
+        window.history.pushState({
+            viewifyURL: url
+        }, null, '#viewify=' + encodeURIComponent(url));
         currentURL = url;
         showOverlay();
         updateOverlay(null, null, url);
@@ -223,6 +225,7 @@ if (typeof window.viewify === 'undefined') {
     }
 
     function updateOverlay(error, session, originalURL) {
+
         clearTimeout(slowTID);
         var overlay = $('.viewify-overlay');
         if (overlay && !hasClass(overlay, HIDDEN_CLASS)) {
@@ -234,7 +237,10 @@ if (typeof window.viewify === 'undefined') {
         }
     }
 
-    function hideOverlay() {
+    function hideOverlay(nopop) {
+        if (!nopop) {
+            window.history.back();
+        }
         var overlay = $('.viewify-overlay');
         if (overlay) {
             addClass(overlay, HIDDEN_CLASS);
@@ -291,7 +297,7 @@ if (typeof window.viewify === 'undefined') {
             if (!attr(a, 'data-viewify-ignore') && isDocumentURL(a.href)) {
                 event.preventDefault();
                 event.stopPropagation();
-                viewifyLink(a);
+                viewifyLink(a.href);
             }
         });
     }
@@ -337,4 +343,21 @@ if (typeof window.viewify === 'undefined') {
             }
         }, false);
     }
+
+    window.onpopstate = function (event) {
+        hideOverlay(true);
+    };
+
+    function checkHash() {
+        var url,
+            hash = window.location.hash;
+        if (hash.indexOf('viewify') > -1) {
+            url = hash.match(/viewify=(.*)$/);
+            if (url && url.length) {
+                url = decodeURIComponent(url[1]);
+                viewifyLink(url);
+            }
+        }
+    }
+    checkHash();
 })(window, document);

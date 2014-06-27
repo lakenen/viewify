@@ -50,16 +50,7 @@ $(function(){
 		event.preventDefault();
 	});
 
-    $('.enable-viewify').on('click', function(e) {
+    $('.enable-viewify,.disable-viewify').on('click', function(e) {
         $('.website-demo-container-container').toggleClass('flipped');
-        // $('.viewify-enabled').removeClass('hidden');
-        // $('.viewify-disabled').addClass('hidden');
     });
-
-    $('.disable-viewify').on('click', function(e) {
-        $('.website-demo-container-container').toggleClass('flipped');
-        // $('.viewify-disabled').removeClass('hidden');
-        // $('.viewify-enabled').addClass('hidden');
-    });
-
 });
