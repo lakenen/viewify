@@ -20,8 +20,9 @@ module.exports = function (grunt) {
             html: {
                 files: [{
                     expand: true,
-                    cwd: 'src/templates/',
-                    src: '*',
+                    flatten: true,
+                    cwd: 'src/',
+                    src: '*.html',
                     dest: '.tmp/html/'
                 }]
             },
@@ -36,9 +37,8 @@ module.exports = function (grunt) {
             }
         },
         useminPrepare: {
-            viewer: {
-                src: 'src/templates/*.html',
-                // css: 'src/styles/**/*.css',
+            html: {
+                src: ['src/index.html', 'src/templates/viewer.html'],
                 options: {
                     root: './',
                     dest: 'public/'
@@ -49,15 +49,15 @@ module.exports = function (grunt) {
             html: ['.tmp/html/*.html'],
             css: ['public/css/*.css'],
             options: {
-                assetsDirs: ['public/images', 'src/images/*']
+                assetsDirs: ['public', 'src/images']
             }
         },
-        // filerev: {
-        //     images: {
-        //         src: 'src/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-        //         dest: 'public/images/'
-        //     }
-        // },
+        filerev: {
+            images: {
+                src: 'src/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+                dest: 'public/images/'
+            }
+        },
         htmlmin: {
             main: {
                 options: {
@@ -133,11 +133,11 @@ module.exports = function (grunt) {
         'concat:generated',
         'uglify:generated',
         'cssmin:generated',
-        // 'filerev',
+        'filerev',
         'usemin',
         'htmlmin',
         'viewify',
-        'clean:build'
+        // 'clean:build'
     ]);
     grunt.registerTask('viewify', [
         'htmlmin:viewify',
