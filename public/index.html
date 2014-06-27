@@ -1,1 +1,112 @@
-hello, world!
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Easily display PDFs and Office docs on your website, with analytics and tracking.">
+        <title>Viewify</title>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+        <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+        <!--<![endif]-->
+        <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/layouts/marketing-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="css/layouts/marketing.css">
+        <link rel="stylesheet" href="css/layouts/viewify.css">
+        <!--<![endif]-->
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+                <a class="pure-menu-heading" href="">Viewify</a>
+                <ul style="float: right;"><!-- @TODO: Figure out why this inline style is required -->
+                    <li class="pure-menu-selected"><a href="#">Home</a></li>
+                    <li><a href="#whyviewify">Why Viewify?</a></li>
+                    <li><a href="#getstarted">Get Started</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="splash-container">
+            <div class="splash">
+                <h1 class="splash-head">Viewify The Web</h1>
+                <p class="splash-subhead">
+                Viewify is easiest way to display PDFs and Office documents on your web site.
+                </p>
+                <p>
+                <a href="#getstarted" class="pure-button pure-button-primary">Get Started</a>
+                </p>
+            </div>
+        </div>
+        <div class="content-wrapper"><a name="whyviewify"></a>
+            <div class="content">
+                <h2 class="content-head is-center"></h2>
+                <div class="pure-g">
+                    <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-2" style="text-align: center;">
+                        <img class="pure-img-responsive" width="124" src="img/devices.png" />
+                        <h3 class="content-subhead">
+                        Beautiful on Any Device
+                        </h3>
+                        <p>
+                        State of the art technologies like SVG ensure that documents render crisply on every device.
+                        </p>
+                    </div>
+                    <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-2" style="text-align: center;">
+                        <img class="pure-img-responsive" width="124" src="img/fast.png" />
+                        <h3 class="content-subhead">
+                        Blazing Fast, Crystal Clear
+                        </h3>
+                        <p>
+                        Get the fastest, highest quality embedded document viewing experience to be found on any device.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ribbon l-box-lrg pure-g">
+                <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                    <img class="pure-img-responsive" width="429" src="img/convert.png" />
+                </div>
+                <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+                    <h2 class="content-head content-head-ribbon">Documents Reimagined</h2>
+                    <p>
+Viewify converts links to PDF and Office documents to use Box View HTML, CSS, and SVG files that are entirely self-contained and render perfectly on any device. Once converted, Viewify links load instantly, alleviating the burden of downloading large PDF and Office files.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="content"><a name="getstarted"></a>
+                <h2 class="content-head is-center">Viewify is as easy as pasting this code into your website:</h2>
+
+                <div class="pure-g">
+                    <div class="l-box-lrg pure-u-1">
+                        <pre>
+                            &lt;script&gt;
+                            !function(v,i,e,w,d,o,c,s){
+                              v[d]={id:o},c=i.createElement(e),s=i.getElementsByTagName(e)[0],
+                              c.async=1,c.src=w,s.parentNode.insertBefore(c,s)
+                            }(window,document,'script','//s.viewify.me/1/v.js','viewify','V-36433643-1');
+                            &lt;/script&gt;
+                        </pre>
+                    </div>
+                    <div class="l-box-lrg pure-u-1 is-center">
+                        <p>This will convert all links to PDFs and Office documents on your site to<br />automatically use the Box View API to generate beautiful web-friendly documents!</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer l-box is-center">
+                &copy; 2014 Viewify - <a href="https://twitter.com/lakenen">@lakenen</a> | 
+                <a href="https://twitter.com/bennettrogers">@bennettrogers</a> | 
+                <a href="https://www.linkedin.com/in/ryandamico">@ryandamico</a> | 
+                <a href="https://twitter.com/silvamerica">@silvamerica</a>
+            </div>
+        </div>
+    </body>
+</html>
