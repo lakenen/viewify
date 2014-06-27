@@ -190,7 +190,7 @@ if (typeof window.viewify === 'undefined') {
 
         clearTimeout(slowTID);
         if (error) {
-            error = 'Oops! We couldn\'t load this document.';
+            error = 'Failed to load.';
             addClass(bodyEl, 'error');
             statusEl.innerText = error;
         } else {
