@@ -24,6 +24,12 @@ module.exports = function (grunt) {
                     cwd: 'src/',
                     src: '*.html',
                     dest: '.tmp/html/'
+                },{
+                    expand: true,
+                    flatten: true,
+                    cwd: 'src/templates',
+                    src: '*.html',
+                    dest: '.tmp/html/'
                 }]
             },
             images: {
@@ -137,7 +143,7 @@ module.exports = function (grunt) {
         'usemin',
         'htmlmin',
         'viewify',
-        // 'clean:build'
+        'clean:build'
     ]);
     grunt.registerTask('viewify', [
         'htmlmin:viewify',
