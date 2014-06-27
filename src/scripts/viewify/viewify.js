@@ -204,7 +204,7 @@ if (typeof window.viewify === 'undefined') {
             }, 8000);
         }
         originalLink.href = originalURL;
-        attr(originalLink, 'viewify-ignore', 1);
+        attr(originalLink, 'data-viewify-ignore', 1);
     }
 
     function showOverlay() {
@@ -288,7 +288,7 @@ if (typeof window.viewify === 'undefined') {
         replace(a, clone);
         clone.addEventListener('click', function (event) {
             var a = this;
-            if (!attr(a, 'viewify-ignore') && isDocumentURL(a.href)) {
+            if (!attr(a, 'data-viewify-ignore') && isDocumentURL(a.href)) {
                 event.preventDefault();
                 event.stopPropagation();
                 viewifyLink(a);
