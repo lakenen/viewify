@@ -17,6 +17,9 @@
             background: transparent;
             font: 14pt 'Helvetica Neue', Helvetica, sans-serif;
             color: #1f8dd6;
+            opacity: 0;
+            -webkit-transition: opacity 0.5s;
+            transition: opacity 0.5s;
         }
 
         .container {
@@ -152,6 +155,9 @@
                 window.parent.postMessage('close', '*');
             }
         };
+        setTimeout(function () {
+            document.body.style.opacity = 1;
+        }, 500);
     </script>
 </body>
 </html>

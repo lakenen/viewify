@@ -227,7 +227,7 @@ if (typeof window.viewify === 'undefined') {
         var overlay = $('.viewify-overlay');
         if (overlay && !hasClass(overlay, HIDDEN_CLASS)) {
             if (session) {
-                $('.viewify-content', overlay).src = VIEWER_URL + '?id=' + session;
+                $('.viewify-content', overlay).src = VIEWER_URL + '?id=' + session + '&url=' + encodeURIComponent(originalURL);
             } else {
                 showStatus(overlay, error, originalURL);
             }
@@ -277,7 +277,7 @@ if (typeof window.viewify === 'undefined') {
     }
 
     function isDocumentURL(url) {
-        return /\.(pdf|doc|docx|ppt|pptx)(\?.*)?(#.*)?$/.test(url);
+        return /\.(pdf|doc|docx|ppt|pptx)(\?.*)?(\.(pdf|doc|docx|ppt|pptx))?(#.*)?$/.test(url);
     }
 
     function fixLink(a) {
