@@ -149,11 +149,11 @@ if (typeof window.viewify === 'undefined') {
 
     var currentRequest, currentURL;
     function viewifyLink(url, nopush) {
-        if (!nopush) {
-            window.history.pushState({
-                viewifyURL: url
-            }, null, '#viewify=' + encodeURIComponent(url));
-        }
+        // if (!nopush) {
+        //     window.history.pushState({
+        //         viewifyURL: url
+        //     }, null, '#viewify=' + encodeURIComponent(url));
+        // }
         currentURL = url;
         showOverlay();
         updateOverlay(null, null, url);
@@ -239,10 +239,8 @@ if (typeof window.viewify === 'undefined') {
         }
     }
 
-    function hideOverlay(nopop) {
-        if (!nopop) {
-            window.history.back();
-        }
+    function hideOverlay() {
+        // window.history.back();
         var overlay = $('.viewify-overlay');
         if (overlay) {
             addClass(overlay, HIDDEN_CLASS);
@@ -348,20 +346,20 @@ if (typeof window.viewify === 'undefined') {
         }, false);
     }
 
-    window.onpopstate = function (event) {
-        hideOverlay(true);
-    };
+    // window.onpopstate = function (event) {
+    //     hideOverlay(true);
+    // };
 
-    function checkHash() {
-        var url,
-            hash = window.location.hash;
-        if (hash.indexOf('viewify') > -1) {
-            url = hash.match(/viewify=(.*)$/);
-            if (url && url.length) {
-                url = decodeURIComponent(url[1]);
-                viewifyLink(url, true);
-            }
-        }
-    }
-    checkHash();
+    // function checkHash() {
+    //     var url,
+    //         hash = window.location.hash;
+    //     if (hash.indexOf('viewify') > -1) {
+    //         url = hash.match(/viewify=(.*)$/);
+    //         if (url && url.length) {
+    //             url = decodeURIComponent(url[1]);
+    //             viewifyLink(url, true);
+    //         }
+    //     }
+    // }
+    // checkHash();
 })(window, document);

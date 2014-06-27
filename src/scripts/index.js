@@ -52,5 +52,6 @@ $(function(){
 
     $('.enable-viewify,.disable-viewify').on('click', function(e) {
         $('.website-demo-container-container').toggleClass('flipped');
+        e.preventDefault();
     });
 });
