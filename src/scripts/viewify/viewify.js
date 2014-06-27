@@ -297,7 +297,7 @@ if (typeof window.viewify === 'undefined') {
     }
 
     function fixLinks() {
-        forEach(document.querySelectorAll('a[href]:not([data-viewify-seen]'), function (a) {
+        forEach(document.querySelectorAll('a[href]:not([data-viewify-seen])'), function (a) {
             attr(a, 'data-viewify-seen', '1');
             if (isDocumentURL(a.href)) {
                 fixLink(a);
