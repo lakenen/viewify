@@ -58,6 +58,14 @@
         if (parsed.id) {
             initViewer(parsed.id);
         }
+        var downloadBtn = document.querySelector('.download-btn');
+        if (parsed.url) {
+            downloadBtn.onclick = function () {
+                window.location = parsed.url;
+            };
+        } else {
+            downloadBtn.style.display = 'none';
+        }
     </script>
 </body>
 </html>
