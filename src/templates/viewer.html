@@ -14,7 +14,7 @@
         <div class="viewer"></div>
         <div class="controls-container">
             <div class="controls controls-left">
-                <span class="icon logo"></span>
+                <a href="https://viewify.me"><span class="icon logo"></span></a>
             </div>
             <div class="controls controls-center">
                 <button class="scroll-previous-btn"><span class="icon"></span></button>
@@ -28,7 +28,7 @@
                 <button class="zoom-out-btn"><span class="icon"></span></button>
                 <button class="zoom-in-btn"><span class="icon"></span></button>
                 <button class="fullscreen-btn"><span class="icon"></span></button>
-                <button class="download-btn"><span class="icon"></span></button>
+                <a class="download-btn"><span class="icon"></span></a>
             </div>
         </div>
     </div>
@@ -60,9 +60,7 @@
         }
         var downloadBtn = document.querySelector('.download-btn');
         if (parsed.url) {
-            downloadBtn.onclick = function () {
-                window.location = parsed.url;
-            };
+            downloadBtn.href =  parsed.url;
         } else {
             downloadBtn.style.display = 'none';
         }
