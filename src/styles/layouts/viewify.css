@@ -16,25 +16,26 @@
 .content:before {
 	content : "";
 	position: absolute;
-	left    : 12.5%;
+	left    : 5%;
 	bottom  : 0;
 	height  : 1px;
-	width   : 75%;  /* or 100px */
-	border-bottom:1px solid #7F8C8D;
+	width   : 90%;  /* or 100px */
+	border-bottom:1px solid #CECECE;
 }
 .website-demo-container {
 	border: 2px solid #7F8C8D;
 	width: 320px;
 	height: 240px;
 	background: white;
-	margin: 60px auto;
 	border-radius: 10px;
+	background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+	position: relative;	
+
 }
 .website-demo-header {
-	border-bottom: 2px solid #7F8C8D;
+	border-bottom: 2px solid #CECECE;
 	height: 20px;
 	padding: 0 2px;
-	position: relative;	
 }
 .website-demo-header-button {
 	width: 14px;
@@ -61,7 +62,63 @@
 	position: absolute;
 	top: -2px;
 }
+.website-demo-body {
+	padding: 8px 12px;
+	position: relative;
+
+}
 .website-demo-body-link {
 	margin: 1em;
 	text-align: center;
 }
+.website-demo-body-text {
+	height: 8px;
+	margin: 4px;
+	background-color: #CECECE;
+	width: 292px;
+}
+.website-demo-container a {
+	color: rgb(99, 137, 237);
+}
+.toggle-viewify {
+	padding-bottom: 0px;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+}
+
+.website-demo-container-container {
+	-webkit-transform-style: preserve-3d;
+	-webkit-perspective: 1000;
+}
+
+.viewify-enabled, .viewify-disabled {
+	position: absolute;
+	-webkit-transition: -webkit-transform 0.5s;
+	-webkit-backface-visibility: hidden;
+}
+
+.flipped .viewify-disabled {
+	-webkit-transform: rotateY(180deg);
+}
+
+.viewify-enabled {
+	-webkit-transform: rotateY(-180deg);
+
+}
+
+.flipped .viewify-enabled {
+	-webkit-transform: rotateY(0);
+}
+
+.website-demo-container-container {
+	position: relative;
+	margin: 60px auto;
+	width: 320px;
+	height: 240px;	
+}
+
+
+
+
+
