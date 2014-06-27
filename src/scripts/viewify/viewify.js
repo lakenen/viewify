@@ -209,7 +209,7 @@ if (typeof window.viewify === 'undefined') {
         if (overlay && !hasClass(overlay, HIDDEN_CLASS)) {
             if (session) {
                 removeClass(overlay, LOADING_CLASS);
-                $('.viewify-content', overlay).src = VIEWER_URL + '?id=' + session.id;
+                $('.viewify-content', overlay).src = VIEWER_URL + '?id=' + session;
             } else {
                 showStatus(overlay, error, originalURL);
             }
