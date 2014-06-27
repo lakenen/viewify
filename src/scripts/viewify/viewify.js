@@ -11,9 +11,13 @@ if (typeof window.viewify === 'undefined') {
     var DOCS_URL = '//viewify.me/api/1/docs';
     var VIEWER_URL = 'https://s.viewify.me/viewer.html';
 
-    var LOADING_CLASS = 'viewify-overlay-loading',
-        ERROR_CLASS = 'viewify-overlay-error',
-        HIDDEN_CLASS = 'viewify-overlay-hidden';
+    var HIDDEN_CLASS = 'viewify-overlay-hidden';
+
+    var templates = {
+        overlay: '<%= inlineTemplate("html/viewify/overlay.html") %>',
+        status: '<%= inlineTemplate("html/viewify/status.html") %>',
+        styles: '<%= inlineTemplate("css/viewify/viewify.css") %>'
+    };
 
     function $(sel, el) {
         return (el || document).querySelector(sel);
@@ -170,23 +174,37 @@ if (typeof window.viewify === 'undefined') {
         });
     }
 
+
+    var slowTID;
     function showStatus(overlay, error, originalURL) {
-        var statusEl = $('.viewify-status', overlay),
-            messageEl = $('.viewify-status-message', statusEl),
-            originalLink = $('.viewify-status-link a', statusEl);
+        var iframe = $('.viewify-content', overlay),
+            doc, bodyEl, statusEl, originalLink;
+        doc = iframe.contentDocument;
+        if (!doc.viewifyStatus) {
+            doc.write(templates.status);
+            doc.viewifyStatus = true;
+        }
+        bodyEl = doc.body;
+        statusEl = $('.status', doc);
+        originalLink = $('.download-btn', doc);
+
+        clearTimeout(slowTID);
         if (error) {
-            //console.error(error);
-            error = 'Oops! Looks like there was an issue converting this document.';
-            messageEl.innerText = error;
-            removeClass(overlay, LOADING_CLASS);
-            addClass(overlay, ERROR_CLASS);
+            error = 'Oops! We couldn\'t load this document.';
+            addClass(bodyEl, 'error');
+            statusEl.innerText = error;
         } else {
-            removeClass(overlay, ERROR_CLASS);
-            addClass(overlay, LOADING_CLASS);
-            messageEl.innerText = 'Generating preview. Hold tight... it\'ll be done in a jiffy!';
+            slowTID = setTimeout(function () {
+                try {
+                    addClass(bodyEl, 'slow');
+                    statusEl.innerText = 'Still working...';
+                } catch(err) {
+                    // it was removed
+                }
+            }, 8000);
         }
         originalLink.href = originalURL;
-        originalLink.dataset.viewifyIgnore = true;
+        attr(originalLink, 'viewify-ignore', 1);
     }
 
     function showOverlay() {
@@ -205,10 +223,10 @@ if (typeof window.viewify === 'undefined') {
     }
 
     function updateOverlay(error, session, originalURL) {
+        clearTimeout(slowTID);
         var overlay = $('.viewify-overlay');
         if (overlay && !hasClass(overlay, HIDDEN_CLASS)) {
             if (session) {
-                removeClass(overlay, LOADING_CLASS);
                 $('.viewify-content', overlay).src = VIEWER_URL + '?id=' + session;
             } else {
                 showStatus(overlay, error, originalURL);
@@ -230,7 +248,7 @@ if (typeof window.viewify === 'undefined') {
     }
 
     function loadStyles() {
-        var css = '<%= inlineTemplate("css/viewify/viewify.css") %>';
+        var css = templates.styles;
         var styleEl = document.createElement('style'),
             cssTextNode = document.createTextNode(css);
         try {
@@ -247,7 +265,7 @@ if (typeof window.viewify === 'undefined') {
         var overlayEl = create('div');
         addClass(overlayEl, 'viewify-overlay', HIDDEN_CLASS);
         overlayEl.style.display = 'none';
-        overlayEl.innerHTML = '<%= inlineTemplate("html/viewify/overlay.html") %>';
+        overlayEl.innerHTML = templates.overlay;
         body.appendChild(overlayEl);
         overlayEl.addEventListener('click', function (event) {
             if (event.target === overlayEl) {
@@ -270,7 +288,7 @@ if (typeof window.viewify === 'undefined') {
         replace(a, clone);
         clone.addEventListener('click', function (event) {
             var a = this;
-            if (!a.dataset.viewifyIgnore && isDocumentURL(a.href)) {
+            if (!attr(a, 'viewify-ignore') && isDocumentURL(a.href)) {
                 event.preventDefault();
                 event.stopPropagation();
                 viewifyLink(a);

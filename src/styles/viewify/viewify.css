@@ -7,7 +7,7 @@
     bottom: 0;
     opacity: 1;
     visibility: visible;
-    background: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.8);
     -webkit-transition: opacity 0.5s, visibility 0s;
     transition: opacity 0.5s, visibility 0s;
 }
@@ -20,14 +20,7 @@
     bottom: 0;
 }
 
-.viewify-overlay-hidden {
-    visibility: hidden;
-    opacity: 0;
-    -webkit-transition: opacity 0.2s, visibility 0s linear 0.2s;
-    transition: opacity 0.2s, visibility 0s linear 0.2s;
-}
-
-.viewify-content, .viewify-status {
+.viewify-content {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -35,24 +28,12 @@
     left: 0;
     border: 0;
 }
-.viewify-status {
-    display: none;
-    text-align: center;
-    font-family: Helvetica, sans-serif;
-    font-size: 1.4em;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    background-position: center 10%;
-    background-repeat: no-repeat;
-    background-size: auto 25%;
-    flex-wrap: wrap;
-}
 
-.viewify-status-message,
-.viewify-status-link {
-    width: 100%;
-    padding: 1em;
+.viewify-overlay-hidden {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 0.2s, visibility 0s linear 0.2s;
+    transition: opacity 0.2s, visibility 0s linear 0.2s;
 }
 
 .viewify-close-btn {
@@ -73,13 +54,4 @@
 
 .viewify-kill-scrolling {
     overflow:hidden;
-}
-
-.viewify-overlay-error .viewify-content,
-.viewify-overlay-loading .viewify-content {
-    display: none;
-}
-.viewify-overlay-error .viewify-status,
-.viewify-overlay-loading .viewify-status {
-    display: flex;
 }

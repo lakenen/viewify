@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            background: transparent;
+            font: 14pt 'Helvetica Neue', Helvetica, sans-serif;
+            color: #1f8dd6;
+        }
+
+        .container {
+            height: 180px;
+            width: 200px;
+            margin: -90px auto;
+            top: 50%;
+            position: relative;
+            text-align: center;
+        }
+
+        /* light blue #37BEFF */
+        .loader-box {
+            border: 4px solid #37BEFF;
+            width: 44px;
+            height: 60px;
+            border-radius: 8px;
+            color: #FFF;
+            margin: 20px auto;
+        }
+
+        .loader-line {
+            background-color: #37BEFF;
+            height: 2px;
+            margin: 8px 4px;
+            border-radius: 8px;
+            border-top: 1px solid #37beff;
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }
+
+        .loader-line.first {
+            margin-top: 12px;
+        }
+
+        .loader-line {
+            -webkit-animation: slide 3s ease-in-out infinite;
+            animation: slide 3s ease-in-out infinite;
+        }
+
+        .loader-line:nth-child(1) {
+            -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+        }
+
+        .loader-line:nth-child(2) {
+            -webkit-animation-delay: 00.75s;
+            animation-delay: 00.75s;
+        }
+        .loader-line:nth-child(3) {
+            -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+        }
+        .loader-line:nth-child(4) {
+            -webkit-animation-delay: 1.25s;
+            animation-delay: 1.25s;
+        }
+
+        @-webkit-keyframes slide {
+            from, to, 70% { -webkit-transform: scale(1,1) }
+            20%, 40% { -webkit-transform: translateX(36px) scale(0,1); }
+            50% { -webkit-transform: translate(0) scale(0,1); }
+
+        }
+
+        @keyframes slide {
+            from, to, 70% { transform: scale(1,1) }
+            20%, 40% { transform: translateX(36px) scale(0,1); }
+            50% { transform: translate(0) scale(0,1); }
+        }
+
+        .error .loader-box {
+            -webkit-transition: color 2s, border-color 2s;
+            transition: color 2s, border-color 2s;
+            color: #E3292C;
+            border-color: #E3292C;
+        }
+
+        .error .loader-box .loader-line {
+            display: none;
+        }
+
+        .loader-error {
+            display: none;
+        }
+
+        .error .loader-error {
+            display: block;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 56px;
+            margin: 0px 14px 8px;
+        }
+
+        .status {
+            padding: 0.5em 0 1em;
+        }
+
+        .download-btn {
+            visibility: hidden;
+            opacity: 0;
+            -webkit-transition: opacity 0.5s, visibility 0s;
+            transition: opacity 0.5s, visibility 0s;
+            text-decoration: none;
+            display: inline-block;
+            background-color: #1f8dd6;
+            color: white;
+            padding: 0.5em 2em;
+            border-radius: 5px;
+        }
+
+        .error .download-btn,
+        .slow .download-btn {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="loader-box">
+            <div class="loader-line first"></div>
+            <div class="loader-line"></div>
+            <div class="loader-line"></div>
+            <div class="loader-line"></div>
+            <div class="loader-error">!</div>
+        </div>
+        <div class="status">Preparing...</div>
+        <a class="download-btn" download>Download</a>
+    </div>
+    <script>
+        document.body.onclick = function (event) {
+            if (event.target === this) {
+                window.parent.postMessage('close', '*');
+            }
+        };
+    </script>
+</body>
+</html>

@@ -137,6 +137,9 @@ body.ready .controls {
 .crocodoc-page-visible.crocodoc-page-loading .crocodoc-page-content {
     background: #fff url(../images/spinner.gif) center center no-repeat;
 }
+.crocodoc-viewer-logo {
+    display: none;
+}
 
 /* Light Theme */
 .controls-container {

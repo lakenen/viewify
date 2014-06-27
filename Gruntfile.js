@@ -72,10 +72,13 @@ module.exports = function (grunt) {
             viewify: {
                 options: {
                     removeComments: true,
-                    collapseWhitespace: true
+                    collapseWhitespace: true,
+                    minifyJS: true,
+                    minifyCSS: true
                 },
                 files: {
-                    '.tmp/html/viewify/overlay.html': 'src/templates/viewify/overlay.html'
+                    '.tmp/html/viewify/overlay.html': 'src/templates/viewify/overlay.html',
+                    '.tmp/html/viewify/status.html': 'src/templates/viewify/status.html'
                 }
             }
         },
