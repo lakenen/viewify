@@ -9,7 +9,7 @@ if (typeof window.viewify === 'undefined') {
 
     var ERR_CONNECTING = 'Error connecting to viewify server.';
     var DOCS_URL = '//viewify.me/docs';
-    var VIEWER_URL = '//s.viewify.me/viewer';
+    var VIEWER_URL = 'https://s.viewify.me/viewer';
 
     var LOADING_CLASS = 'viewify-overlay-loading',
         ERROR_CLASS = 'viewify-overlay-error',

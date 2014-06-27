@@ -1,4 +1,4 @@
-function initViewer(options) {
+function initViewer(sessionId) {
     'use strict';
 
     // IE < 10 doesn't get data until the connection is closed
@@ -14,7 +14,7 @@ function initViewer(options) {
         lastCompletedPage = 0,
         numPages = 0,
         viewerConfig = {
-            url: options.assetsURL,
+            url: 'https://view-api.box.com/1/sessions/' + sessionId + '/assets',
             layout: Crocodoc.LAYOUT_VERTICAL_SINGLE_COLUMN,
             plugins: {
                 fullscreen: {
@@ -22,7 +22,7 @@ function initViewer(options) {
                     useFakeFullscreen: false
                 },
                 realtime: {
-                    url: options.realtimeURL
+                    url: 'https://view-api.box.com/sse/' + sessionId
                 }
             }
         },
