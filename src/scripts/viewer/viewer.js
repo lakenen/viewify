@@ -163,4 +163,21 @@ function initViewer(options) {
     if (!viewer.isFullscreenSupported()) {
         $fullscreenBtn.hide();
     }
+
+    function closeOverlay() {
+        window.parent.postMessage('close', '*');
+    }
+    if (window.parent !== window) {
+        $(document).on('keydown', function (event) {
+            if (event.keyCode === 27) { //esc
+                closeOverlay();
+            }
+        });
+
+        $('.crocodoc-doc').on('click', function (event) {
+            if (event.target === this) {
+                closeOverlay();
+            }
+        });
+    }
 }

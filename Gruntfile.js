@@ -13,6 +13,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-filerev');
     grunt.loadNpmTasks('grunt-usemin');
+    grunt.loadNpmTasks('grunt-inline-template');
 
     grunt.initConfig({
         copy: {
@@ -67,15 +68,44 @@ module.exports = function (grunt) {
                     'public/viewer.html': '.tmp/html/viewer.html',
                     'public/index.html': '.tmp/html/index.html'
                 }
+            },
+            viewify: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: {
+                    '.tmp/html/viewify/overlay.html': 'src/templates/viewify/overlay.html'
+                }
+            }
+        },
+        cssmin: {
+            viewify: {
+                files: {
+                    '.tmp/css/viewify/viewify.css': 'src/styles/viewify/viewify.css'
+                }
+            }
+        },
+        uglify: {
+            viewify: {
+                files: {
+                    'public/1/v.js': '.tmp/js/viewify.js'
+                }
             }
         },
         watch: {
             scripts: {
                 files: ['src'],
-                tasks: ['build'],
+                tasks: ['build']
+            }
+        },
+        inlineTemplate: {
+            viewify: {
                 options: {
-                  spawn: false,
-                }
+                    base: '.tmp/'
+                },
+                src: ['src/scripts/viewify/viewify.js'],
+                dest: '.tmp/js/viewify.js'
             }
         },
         clean: {
@@ -97,13 +127,20 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'copy',
         'useminPrepare',
-        'concat',
-        'uglify',
-        'cssmin',
+        'concat:generated',
+        'uglify:generated',
+        'cssmin:generated',
         // 'filerev',
         'usemin',
         'htmlmin',
-        // 'clean:build'
+        'viewify',
+        'clean:build'
+    ]);
+    grunt.registerTask('viewify', [
+        'htmlmin:viewify',
+        'cssmin:viewify',
+        'inlineTemplate',
+        'uglify:viewify'
     ]);
     grunt.registerTask('serve', ['connect:dev']);
     grunt.registerTask('prod', ['build', 'connect:prod']);

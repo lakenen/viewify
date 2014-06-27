@@ -41,5 +41,20 @@
     <script src="/src/scripts/viewer/fullscreen.js"></script>
     <script src="/src/scripts/viewer/viewer.js"></script>
     <!-- endbuild -->
+
+    <script>
+        $(window).on('message', function (event) {
+            event = event.originalEvent;
+            var data = $.parseJSON(event.data);
+            if (data.error) {
+                showError(data.error);
+            } else if (data.session) {
+                initViewer({
+                    asssetsURL: data.session.assets,
+                    realtimeURL: data.session.realtime
+                });
+            }
+        });
+    </script>
 </body>
 </html>
