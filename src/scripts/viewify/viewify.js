@@ -8,8 +8,8 @@ if (typeof window.viewify === 'undefined') {
     var knownSessions = {};
 
     var ERR_CONNECTING = 'Error connecting to viewify server.';
-    var DOCS_URL = '//viewify.me/docs';
-    var VIEWER_URL = 'https://s.viewify.me/viewer';
+    var DOCS_URL = '//viewify.me/api/1/docs';
+    var VIEWER_URL = 'https://s.viewify.me/viewer.html';
 
     var LOADING_CLASS = 'viewify-overlay-loading',
         ERROR_CLASS = 'viewify-overlay-error',
@@ -207,9 +207,9 @@ if (typeof window.viewify === 'undefined') {
     function updateOverlay(error, session, originalURL) {
         var overlay = $('.viewify-overlay');
         if (overlay && !hasClass(overlay, HIDDEN_CLASS)) {
-            if (url) {
+            if (session) {
                 removeClass(overlay, LOADING_CLASS);
-                $('.viewify-content', overlay).src = '?id=' + session.id;
+                $('.viewify-content', overlay).src = VIEWER_URL + '?id=' + session.id;
             } else {
                 showStatus(overlay, error, originalURL);
             }
@@ -271,9 +271,9 @@ if (typeof window.viewify === 'undefined') {
         clone.addEventListener('click', function (event) {
             var a = this;
             if (!a.dataset.viewifyIgnore && isDocumentURL(a.href)) {
-                viewifyLink(a);
                 event.preventDefault();
                 event.stopPropagation();
+                viewifyLink(a);
             }
         });
     }
