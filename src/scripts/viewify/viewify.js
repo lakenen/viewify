@@ -148,10 +148,12 @@ if (typeof window.viewify === 'undefined') {
     }
 
     var currentRequest, currentURL;
-    function viewifyLink(url) {
-        window.history.pushState({
-            viewifyURL: url
-        }, null, '#viewify=' + encodeURIComponent(url));
+    function viewifyLink(url, nopush) {
+        if (!nopush) {
+            window.history.pushState({
+                viewifyURL: url
+            }, null, '#viewify=' + encodeURIComponent(url));
+        }
         currentURL = url;
         showOverlay();
         updateOverlay(null, null, url);
@@ -357,7 +359,7 @@ if (typeof window.viewify === 'undefined') {
             url = hash.match(/viewify=(.*)$/);
             if (url && url.length) {
                 url = decodeURIComponent(url[1]);
-                viewifyLink(url);
+                viewifyLink(url, true);
             }
         }
     }
