@@ -62,8 +62,14 @@ label {
     border: 2px solid #ddd;
     box-shadow: none;
     font-size: 100%;
-    width: 100%;
+    /*width: 100%;*/
     margin-bottom: 1em;
+}
+
+@media only screen and (max-width: 480px) {
+    input[type] {
+        width: 100%;
+    }
 }
 
 /*
@@ -117,6 +123,7 @@ a.pure-button-primary {
 
 .home-menu a {
     color: #6FBEF3;
+    font-size: 90%;
 }
 .home-menu li a:hover,
 .home-menu li a:focus {
@@ -133,25 +140,26 @@ a.pure-button-primary {
 
 .splash-container {
     background: #1f8dd6;
-    z-index: 1;
-    overflow: hidden;
+    /*z-index: 1;*/
+    /*overflow: hidden;*/
     /* The following styles are required for the "scroll-over" effect */
-    width: 100%;
-    height: 88%;
-    top: 0;
-    left: 0;
-    position: fixed !important;
+    /*width: 100%;*/
+    /*height: 88%;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*position: fixed !important;*/
+    padding: 3em 2em 2em 2em;
 }
 
 .splash {
     /* absolute center .splash within .splash-container */
-    width: 80%;
-    height: 50%;
-    margin: auto;
-    position: absolute;
-    top: 100px; left: 0; bottom: 0; right: 0;
-    text-align: center;
-    text-transform: uppercase;
+    /*width: 80%;*/
+    /*height: 50%;*/
+    /*margin: auto;*/
+    /*position: absolute;*/
+    /*top: 100px; left: 0; bottom: 0; right: 0;*/
+    /*text-align: center;*/
+    /*text-transform: uppercase;*/
 }
 
 /* This is the main heading that appears on the blue section */
@@ -159,10 +167,11 @@ a.pure-button-primary {
     font-size: 20px;
     font-weight: bold;
     color: white;
-    border: 3px solid white;
-    padding: 1em 1.6em;
+    /*border: 3px solid white;*/
+    /*padding: 1em 1.6em;*/
+    padding: 1em 0 0 1em;
     font-weight: 100;
-    border-radius: 5px;
+    /*border-radius: 5px;*/
     line-height: 1em;
 }
 
@@ -171,6 +180,7 @@ a.pure-button-primary {
     color: white;
     letter-spacing: 0.05em;
     opacity: 0.8;
+    padding: 0 1.7em;
 }
 
 /*
@@ -179,11 +189,11 @@ a.pure-button-primary {
  */
 .content-wrapper {
     /* These styles are required for the "scroll-over" effect */
-    position: absolute;
-    top: 87%;
-    width: 100%;
-    min-height: 12%;
-    z-index: 2;
+    /*position: absolute;*/
+    /*top: 87%;*/
+    /*width: 100%;*/
+    /*min-height: 12%;*/
+    /*z-index: 2;*/
     background: white;
 
 }
@@ -205,9 +215,9 @@ a.pure-button-primary {
 .content-subhead {
     color: #1f8dd6;
 }
-    .content-subhead i {
-        margin-right: 7px;
-    }
+.content-subhead i {
+    margin-right: 7px;
+}
 
 /* This is the class used for the dark-background areas. */
 .ribbon {
@@ -241,9 +251,10 @@ a.pure-button-primary {
     .home-menu {
         text-align: left;
     }
-        .home-menu ul {
-            float: right;
-        }
+
+    .home-menu ul {
+        float: right;
+    }
 
     /* We increase the height of the splash-container */
 /*    .splash-container {
@@ -261,6 +272,9 @@ a.pure-button-primary {
         font-size: 250%;
     }
 
+    .splash-subhead {
+        padding-left: 2.5em;
+    }
 
     /* We remove the border-separator assigned to .l-box-lrg */
     .l-box-lrg {
@@ -278,5 +292,8 @@ a.pure-button-primary {
     /* We increase the header font size even more */
     .splash-head {
         font-size: 300%;
+    }
+    .splash-subhead {
+        padding-left: 3em;
     }
 }

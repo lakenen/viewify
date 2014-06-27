@@ -7,3 +7,61 @@
 .content-wrapper {
 	top: 30%;
 }*/
+.hidden {
+	display: none !important;
+}
+.content {
+	position: relative;
+}
+.content:before {
+	content : "";
+	position: absolute;
+	left    : 12.5%;
+	bottom  : 0;
+	height  : 1px;
+	width   : 75%;  /* or 100px */
+	border-bottom:1px solid #7F8C8D;
+}
+.website-demo-container {
+	border: 2px solid #7F8C8D;
+	width: 320px;
+	height: 240px;
+	background: white;
+	margin: 60px auto;
+	border-radius: 10px;
+}
+.website-demo-header {
+	border-bottom: 2px solid #7F8C8D;
+	height: 20px;
+	padding: 0 2px;
+	position: relative;	
+}
+.website-demo-header-button {
+	width: 14px;
+	height: 14px;
+	background-color: #000;
+	border: 1px solid #CECECE;
+	border-radius: 8px;
+	float: left;
+	margin: 2px 0 0 2px;
+}
+.website-demo-header-button-red {
+	background-color: #F00;
+}
+.website-demo-header-button-yellow {
+	background-color: #FF0;
+}
+.website-demo-header-button-green {
+	background-color: #0F0;
+}
+.website-demo-header-title {
+	font-size: 12pt;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	top: -2px;
+}
+.website-demo-body-link {
+	margin: 1em;
+	text-align: center;
+}
