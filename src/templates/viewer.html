@@ -8,11 +8,6 @@
     <link href="/src/styles/viewer/fullscreen.css" rel="stylesheet" type="text/css" />
     <link href="/src/styles/viewer/viewer.css" rel="stylesheet" type="text/css" />
     <!-- endbuild -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <!-- build:js /js/viewer.min.js -->
-    <script src="/node_modules/viewer/dist/crocodoc.viewer.js"></script>
-    <script src="/src/scripts/viewer.js"></script>
-    <!-- endbuild -->
 </head>
 <body>
     <div class="container">
@@ -37,5 +32,14 @@
             </div>
         </div>
     </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- build:js /js/viewer.min.js -->
+    <script src="/node_modules/viewer/dist/crocodoc.viewer.js"></script>
+    <script src="/node_modules/event-source-polyfill/eventsource.js"></script>
+    <script src="/src/scripts/viewer/realtime.js"></script>
+    <script src="/src/scripts/viewer/fullscreen.js"></script>
+    <script src="/src/scripts/viewer/viewer.js"></script>
+    <!-- endbuild -->
 </body>
 </html>
