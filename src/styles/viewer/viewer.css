@@ -1,0 +1,228 @@
+html {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background: transparent;
+    font: 14pt 'Helvetica Neue', Helvetica, sans-serif;
+    color: #333;
+}
+.container {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+.viewer,
+.viewer-error {
+    position: absolute;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 45px;
+}
+.viewer-error {
+    display: none;
+    color: #333;
+    text-align: center;
+    font-size: 100%;
+}
+.controls-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.controls {
+    display: none;
+}
+body.ready .controls {
+    display: inline-block;
+}
+.controls-left {
+    display: block;
+    position: absolute;
+    left: 0;
+}
+.controls-right {
+    position: absolute;
+    right: 0;
+}
+.controls button {
+    border: 0;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.controls .page {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+.controls .page-display {
+    width: auto;
+    background: transparent;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 10pt;
+    line-height: 0px;
+    margin: 0 5px 0;
+    vertical-align: middle;
+    text-align: center;
+}
+.controls .page-input {
+    position: absolute;
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    top: 11px;
+    left: 0;
+    display: none;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 10pt;
+    text-align: center;
+    vertical-align: middle;
+}
+.controls .page-input:focus {
+    outline: 0;
+    border: 1px solid #aaa;
+    box-shadow: #ccc 0 0 1px inset;
+}
+.controls button,
+.controls .logo {
+    background-color: transparent;
+    display: inline-block;
+    vertical-align: top;
+    margin: 7px 5px 0;
+}
+.controls .icon {
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.controls button .icon {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+.controls button {
+    cursor: pointer;
+}
+.controls button:disabled {
+    cursor: default;
+}
+
+.logo {
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+}
+
+.crocodoc-page-inner {
+    border: 1px solid rgb(240,240,240);
+    box-shadow: 1px 1px 4px rgba(120, 120, 120, 0.5);
+}
+.crocodoc-page-visible.crocodoc-page-loading .crocodoc-page-content {
+    background: #fff url(../images/spinner.gif) center center no-repeat;
+}
+
+/* Light Theme */
+.controls-container {
+    height: 44px;
+    line-height: 44px;
+    border-top: 1px solid #d9d9d9;
+    background: #fff;
+}
+.page-display,
+.page-input {
+    color: #333;
+}
+.icon {
+    opacity: 0.7;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+}
+button:focus {
+    outline: 0;
+}
+button:hover .icon {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+.logo {
+    background-image: url(../images/icon_box.png);
+}
+.download-btn .icon {
+    background-image: url(../images/icon_download.png);
+}
+.scroll-previous-btn .icon {
+    background-image: url(../images/icon_up.png);
+}
+.scroll-next-btn .icon {
+    background-image: url(../images/icon_down.png);
+}
+.zoom-in-btn .icon {
+    background-image: url(../images/icon_zoomin.png);
+    background-position: -2px -2px;
+}
+.zoom-out-btn .icon {
+    background-image: url(../images/icon_zoomout.png);
+    background-position: -2px -2px;
+}
+.fullscreen-btn .icon {
+    background-image: url(../images/icon_fullscreen.png);
+    background-position: -1px -2px;
+}
+.controls button:disabled .icon {
+    opacity: 0.2;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+}
+
+@media only screen and (max-width: 400px) {
+    .controls-right {
+        display: none !important;
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .logo {
+        background-image: url(../images/icon_box@2x.png);
+        background-size: 32px 32px;
+    }
+    .download-btn .icon {
+        background-image: url(../images/icon_download@2x.png);
+    }
+    .scroll-previous-btn .icon {
+        background-image: url(../images/icon_up@2x.png);
+    }
+    .scroll-next-btn .icon {
+        background-image: url(../images/icon_down@2x.png);
+    }
+    .zoom-in-btn .icon {
+        background-image: url(../images/icon_zoomin@2x.png);
+        background-position: -2px -2px;
+    }
+    .zoom-out-btn .icon {
+        background-image: url(../images/icon_zoomout@2x.png);
+        background-position: -2px -2px;
+    }
+    .fullscreen-btn .icon {
+        background-image: url(../images/icon_fullscreen@2x.png);
+        background-position: -1px -2px;
+    }
+
+    .icon {
+        background-size: 32px 32px;
+    }
+}

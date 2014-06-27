@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <!-- build:css /css/viewer.min.css -->
+    <link href="/node_modules/viewer/dist/crocodoc.viewer.css" rel="stylesheet" type="text/css" />
+    <link href="/src/styles/viewer/fullscreen.css" rel="stylesheet" type="text/css" />
+    <link href="/src/styles/viewer/viewer.css" rel="stylesheet" type="text/css" />
+    <!-- endbuild -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- build:js /js/viewer.min.js -->
+    <script src="/node_modules/viewer/dist/crocodoc.viewer.js"></script>
+    <script src="/src/scripts/viewer.js"></script>
+    <!-- endbuild -->
+</head>
+<body>
+    <div class="container">
+        <div class="viewer"></div>
+        <div class="controls-container">
+            <div class="controls controls-left">
+                <span class="icon logo"></span>
+            </div>
+            <div class="controls controls-center">
+                <button class="scroll-previous-btn"><span class="icon"></span></button>
+                <div class="page">
+                    <button class="page-display"></button>
+                    <input type="text" pattern="\d*" class="page-input"></input>
+                </div>
+                <button class="scroll-next-btn"><span class="icon"></span></button>
+            </div>
+            <div class="controls controls-right">
+                <button class="zoom-out-btn"><span class="icon"></span></button>
+                <button class="zoom-in-btn"><span class="icon"></span></button>
+                <button class="fullscreen-btn"><span class="icon"></span></button>
+                <button class="download-btn"><span class="icon"></span></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
