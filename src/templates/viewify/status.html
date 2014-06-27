@@ -94,16 +94,16 @@
         }
 
         @-webkit-keyframes slide {
-            from, to, 70% { -webkit-transform: scale(1,1) }
-            20%, 40% { -webkit-transform: translateX(36px) scale(0,1); }
-            50% { -webkit-transform: translate(0) scale(0,1); }
+            from, to, 70% { -webkit-transform: translate(0, 0) scale(1,1) }
+            20%, 40% { -webkit-transform: translate(36px, 0) scale(0,1); }
+            50% { -webkit-transform: translate(0, 0) scale(0,1); }
 
         }
 
         @keyframes slide {
             from, to, 70% { transform: scale(1,1) }
-            20%, 40% { transform: translateX(36px) scale(0,1); }
-            50% { transform: translate(0) scale(0,1); }
+            20%, 40% { transform: translate(36px, 0) scale(0,1); }
+            50% { transform: translate(0, 0) scale(0,1); }
         }
 
         .error .loader-box {
