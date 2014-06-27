@@ -29,7 +29,7 @@
 	background: white;
 	border-radius: 10px;
 	background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
-	position: relative;	
+	position: relative;
 
 }
 .website-demo-header {
@@ -88,34 +88,40 @@
 }
 
 .website-demo-container-container {
-	-webkit-transform-style: preserve-3d;
-	-webkit-perspective: 1000;
+    -webkit-transform-style: preserve-3d;
+    -webkit-perspective: 1000px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .viewify-enabled, .viewify-disabled {
 	position: absolute;
-	-webkit-transition: -webkit-transform 0.5s;
-	-webkit-backface-visibility: hidden;
+    -webkit-transition: -webkit-transform 0.5s;
+    -webkit-backface-visibility: hidden;
+    transition: transform 0.5s;
+    backface-visibility: hidden;
 }
 
 .flipped .viewify-disabled {
-	-webkit-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .viewify-enabled {
-	-webkit-transform: rotateY(-180deg);
-
+    -webkit-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
 }
 
 .flipped .viewify-enabled {
-	-webkit-transform: rotateY(0);
+    -webkit-transform: rotateY(0);
+	transform: rotateY(0);
 }
 
 .website-demo-container-container {
 	position: relative;
 	margin: 60px auto;
 	width: 320px;
-	height: 240px;	
+	height: 240px;
 }
 
 
