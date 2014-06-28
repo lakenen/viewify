@@ -65,6 +65,16 @@ body.ready .controls {
     cursor: pointer;
 }
 
+.controls a.logo-btn {
+    width: 64px;
+    margin-left: 10px;
+}
+
+.controls a.download-btn {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
 .controls .page {
     display: inline-block;
     position: relative;

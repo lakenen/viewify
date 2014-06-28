@@ -128,7 +128,8 @@ module.exports = function (grunt) {
             dev: {},
             prod: {
                 options: {
-                    base: 'public'
+                    base: 'public',
+                    open: true
                 }
             }
         }
