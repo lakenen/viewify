@@ -232,7 +232,11 @@ if (typeof window.viewify === 'undefined') {
         var overlay = $('.viewify-overlay');
         if (overlay && !hasClass(overlay, HIDDEN_CLASS)) {
             if (session) {
-                $('.viewify-content', overlay).src = VIEWER_URL + '?id=' + session + '&url=' + encodeURIComponent(originalURL);
+                $('.viewify-content', overlay).src =
+                    VIEWER_URL +
+                    '?id=' + session +
+                    '&url=' + encodeURIComponent(originalURL) +
+                    '&vid=' + window.viewify.id;
             } else {
                 showStatus(overlay, error, originalURL);
             }

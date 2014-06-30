@@ -54,6 +54,14 @@
             return result;
         }
 
+        function loadViewify(id) {
+            window.viewify = { id: id };
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = '/1/v.js';
+            document.body.appendChild(s);
+        }
+
         var parsed = parseQueryString();
         if (parsed.id) {
             initViewer(parsed.id);
@@ -63,6 +71,9 @@
             downloadBtn.href =  parsed.url;
         } else {
             downloadBtn.style.display = 'none';
+        }
+        if (parsed.vid) {
+            loadViewify(parsed.vid);
         }
     </script>
 </body>
