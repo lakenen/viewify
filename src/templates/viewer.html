@@ -55,8 +55,10 @@
         }
 
         var parsed = parseQueryString();
+        var logoBtn = document.querySelector('.logo-btn');
         if (parsed.id) {
             initViewer(parsed.id);
+            logoBtn.href += '?ref=viewer&id=' + parsed.id;
         }
         var downloadBtn = document.querySelector('.download-btn');
         if (parsed.url) {
